@@ -1,5 +1,9 @@
 package main;
 
-public class Main {
+import ventanas.Mapa;
 
+public class Main {
+	public static void main (String[] args) {
+		Mapa mapa=new Mapa();
+	}
 }
