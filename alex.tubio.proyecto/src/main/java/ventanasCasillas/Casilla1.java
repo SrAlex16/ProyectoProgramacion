@@ -73,7 +73,7 @@ public class Casilla1 extends JFrame{
 			mapa=new Mapa();
 			System.out.println("esto es para ver si la funcion esta bien");
 		}else {
-			System.out.println("claramente no funciona");
+			System.out.println("no funciona");
 		}
 		
 		this.setVisible(true);
