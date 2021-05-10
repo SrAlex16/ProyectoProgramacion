@@ -19,7 +19,7 @@ public class Mapa extends JFrame{
 	public Mapa() {
 		Image icono;
 		this.setSize(645, 840);
-		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		//this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setTitle("Mapa del juego");
 		this.setResizable(false);
 		getContentPane().setLayout(null);

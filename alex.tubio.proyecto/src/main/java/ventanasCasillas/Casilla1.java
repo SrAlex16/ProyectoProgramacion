@@ -6,12 +6,16 @@ import java.awt.BorderLayout;
 import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.SwingConstants;
+import javax.imageio.ImageIO;
 import javax.swing.BoxLayout;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.CardLayout;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
@@ -23,60 +27,56 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
-public class Casilla1 extends JFrame{
+public class Casilla1 extends JFrame implements ActionListener{
 	Mapa mapa;
+	Image icono;
 	public Casilla1() {
+		
+		try {
+			icono = ImageIO.read(new File("./icono.png"));
+			this.setIconImage(icono);
+		} catch (IOException e) {
+			System.out.println("el icono no funciona");
+			e.printStackTrace();
+		}
 		
 		this.setSize(884, 600);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setTitle("Juego");
 		this.setResizable(true);
-		getContentPane().setLayout(null);
+		getContentPane().setLayout(new BorderLayout(0, 0));
 		
-		JButton mostrarMapa = new JButton("Ver el mapa");
-		mostrarMapa.setFont(new Font("Ink Free", Font.BOLD, 15));
-		mostrarMapa.setBackground(Color.GRAY);
-		mostrarMapa.setBounds(10, 459, 158, 47);
-		mostrarMapa.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		getContentPane().setLayout(null);
-		getContentPane().add(mostrarMapa);
+		JPanel panel = new JPanel();
+		getContentPane().add(panel, BorderLayout.SOUTH);
+		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		JLabel lblNewLabel = new JLabel("Te encuentras en una mazmorra. A tu derecha tienes un pasillo con unas escaleras que bajan, y a la izquierda otro pasillo que lleva a dos habitaciones distintas.\r\n\u00BFQu\u00E9 quieres hacer?");
-		lblNewLabel.setBounds(10, 11, 846, 221);
-		getContentPane().add(lblNewLabel);
+		JButton verMapa = new JButton("Ver el mapa");
+		verMapa.setFont(new Font("Ink Free", Font.BOLD, 20));
+		panel.add(verMapa);
+		verMapa.addActionListener(this); //al pulsar el botón, se genera un evento en la función que le indiquemos. Ver vídeo pildorasinformaticas.
+		//TODO hacer que el mapa salga en una ventana sin bordes y que se cierre desde la ventana principal
 		
-		JButton mostrarMapa_1 = new JButton("Ir a la derecha");
-		mostrarMapa_1.setFont(new Font("Ink Free", Font.BOLD, 15));
-		mostrarMapa_1.setBackground(Color.GRAY);
-		mostrarMapa_1.setBounds(242, 459, 158, 47);
-		getContentPane().add(mostrarMapa_1);
+		JButton irIzquierda = new JButton("Ir a la izquierda");
+		irIzquierda.setFont(new Font("Ink Free", Font.BOLD, 20));
+		panel.add(irIzquierda);
 		
-		JButton btnIrALa = new JButton("Ir a la izquierda");
-		btnIrALa.setFont(new Font("Ink Free", Font.BOLD, 15));
-		btnIrALa.setBackground(Color.GRAY);
-		btnIrALa.setBounds(459, 459, 158, 47);
-		getContentPane().add(btnIrALa);
+		JButton irDerecha = new JButton("Ir a la derecha");
+		irDerecha.setFont(new Font("Ink Free", Font.BOLD, 20));
+		panel.add(irDerecha);
 		
-		JButton btnVolver = new JButton("Volver");
-		btnVolver.setToolTipText("Vas a la habitaci\u00F3n anterior");
-		btnVolver.setFont(new Font("Ink Free", Font.BOLD, 15));
-		btnVolver.setBackground(Color.GRAY);
-		btnVolver.setBounds(698, 459, 158, 47);
-		getContentPane().add(btnVolver);
-		
-		//TODO hacer que esto funcione
-		if(mostrarMapa.equals(mostrarMapa.getActionCommand())) {
-			mapa=new Mapa();
-			System.out.println("esto es para ver si la funcion esta bien");
-		}else {
-			System.out.println("no funciona");
-		}
+		JButton irRecto = new JButton("Ir recto");
+		irRecto.setFont(new Font("Ink Free", Font.BOLD, 20));
+		panel.add(irRecto);
 		
 		this.setVisible(true);
 		//TODO Poner la casilla en la que te encuentras
 	}
+	
+	public void actionPerformed(ActionEvent e) { //esta función recibe el evento y crea el mapa
+		Mapa mapa=new Mapa();
+	}
+	
+	
 }
