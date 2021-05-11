@@ -29,10 +29,11 @@ import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class Casilla1 extends JFrame implements ActionListener{
+public class Ventana extends JFrame{
 	Mapa mapa;
 	Image icono;
-	public Casilla1() {
+	public Ventana() {
+		
 		
 		try {
 			icono = ImageIO.read(new File("./icono.png"));
@@ -52,10 +53,16 @@ public class Casilla1 extends JFrame implements ActionListener{
 		getContentPane().add(panel, BorderLayout.SOUTH);
 		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		JButton verMapa = new JButton("Ver el mapa");
+		final JButton verMapa = new JButton("Ver el mapa"); //TODO Hacer que el mapa se cierre
+		verMapa.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new Mapa();
+				verMapa.setText("Cerrar Mapa");
+			}
+		});
 		verMapa.setFont(new Font("Ink Free", Font.BOLD, 20));
 		panel.add(verMapa);
-		verMapa.addActionListener(this); //al pulsar el botón, se genera un evento en la función que le indiquemos. Ver vídeo pildorasinformaticas.
+		 //al pulsar el botón, se genera un evento en la función que le indiquemos. Ver vídeo pildorasinformaticas.
 		//TODO hacer que el mapa salga en una ventana sin bordes y que se cierre desde la ventana principal
 		
 		JButton irIzquierda = new JButton("Ir a la izquierda");
@@ -70,13 +77,13 @@ public class Casilla1 extends JFrame implements ActionListener{
 		irRecto.setFont(new Font("Ink Free", Font.BOLD, 20));
 		panel.add(irRecto);
 		
+		
+		
 		this.setVisible(true);
 		//TODO Poner la casilla en la que te encuentras
 	}
 	
-	public void actionPerformed(ActionEvent e) { //esta función recibe el evento y crea el mapa
-		Mapa mapa=new Mapa();
-	}
+
 	
 	
 }

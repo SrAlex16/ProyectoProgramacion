@@ -18,11 +18,12 @@ import javax.swing.GroupLayout.Alignment;
 public class Mapa extends JFrame{
 	public Mapa() {
 		Image icono;
+		this.setUndecorated(true); //para quitar el borde de arriba de la ventana
 		this.setSize(645, 840);
-		//this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setTitle("Mapa del juego");
 		this.setResizable(false);
-		getContentPane().setLayout(null);
+		//getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setIcon(new ImageIcon(Mapa.class.getResource("/imagenes/mapa.jpg")));

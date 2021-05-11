@@ -1,10 +1,10 @@
 package main;
 
 import ventanas.Mapa;
-import ventanasCasillas.Casilla1;
+import ventanasCasillas.Ventana;
 
 public class Main {
 	public static void main (String[] args) {
-		Casilla1 inicio=new Casilla1();
+		Ventana inicio=new Ventana();
 	}
 }
