@@ -1,4 +1,4 @@
-package ventanasCasillas;
+package ventanas;
 
 import javax.swing.JFrame;
 import java.awt.FlowLayout;
@@ -21,7 +21,6 @@ import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
 import net.miginfocom.swing.MigLayout;
-import ventanas.Mapa;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -54,15 +53,23 @@ public class Ventana extends JFrame{
 		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 		final JButton verMapa = new JButton("Ver el mapa"); //TODO Hacer que el mapa se cierre
+		//verMapa.setEnabled(false); //El boton sale, pero no se puede pulsar
+		
+		//abrir el mapa
 		verMapa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Mapa();
-				verMapa.setText("Cerrar Mapa");
+				if (mapa==null) {
+					mapa=new Mapa();
+					verMapa.setText("Cerrar mapa"); //Cambiar el texto del botón
+				//}else if(mapa.isActive()){
+					//mapa=null;
+				}
 			}
 		});
+		
 		verMapa.setFont(new Font("Ink Free", Font.BOLD, 20));
 		panel.add(verMapa);
-		 //al pulsar el botón, se genera un evento en la función que le indiquemos. Ver vídeo pildorasinformaticas.
+		//al pulsar el botón, se genera un evento en la función que le indiquemos. Ver vídeo pildorasinformaticas.
 		//TODO hacer que el mapa salga en una ventana sin bordes y que se cierre desde la ventana principal
 		
 		JButton irIzquierda = new JButton("Ir a la izquierda");
@@ -81,9 +88,5 @@ public class Ventana extends JFrame{
 		
 		this.setVisible(true);
 		//TODO Poner la casilla en la que te encuentras
-	}
-	
-
-	
-	
+	}	
 }

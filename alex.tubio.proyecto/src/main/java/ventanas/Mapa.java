@@ -25,10 +25,10 @@ public class Mapa extends JFrame{
 		this.setResizable(false);
 		//getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon(Mapa.class.getResource("/imagenes/mapa.jpg")));
-		lblNewLabel.setBounds(0, -21, 634, 831);
-		getContentPane().add(lblNewLabel);
+		JLabel imagenMapa = new JLabel("New label");
+		imagenMapa.setIcon(new ImageIcon(Mapa.class.getResource("/imagenes/mapa.jpg")));
+		imagenMapa.setBounds(0, -21, 634, 831);
+		getContentPane().add(imagenMapa);
 		
 		try {
 			icono = ImageIO.read(new File("./icono.png"));
