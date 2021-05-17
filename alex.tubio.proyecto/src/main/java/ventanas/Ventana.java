@@ -20,6 +20,8 @@ import java.awt.CardLayout;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
+
+import clases.Casilla;
 import net.miginfocom.swing.MigLayout;
 
 import javax.swing.GroupLayout;
@@ -27,6 +29,8 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class Ventana extends JFrame{
 	Mapa mapa;
@@ -53,7 +57,7 @@ public class Ventana extends JFrame{
 		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 		final JButton verMapa = new JButton("Ver el mapa"); //TODO Hacer que el mapa se cierre
-		//verMapa.setEnabled(false); //El boton sale, pero no se puede pulsar
+		//El boton sale, pero no se puede pulsar
 		
 		//abrir el mapa
 		verMapa.addActionListener(new ActionListener() {
@@ -72,7 +76,17 @@ public class Ventana extends JFrame{
 		//al pulsar el botón, se genera un evento en la función que le indiquemos. Ver vídeo pildorasinformaticas.
 		//TODO hacer que el mapa salga en una ventana sin bordes y que se cierre desde la ventana principal
 		
+		
+		//Acción de ir a la izquierda
 		JButton irIzquierda = new JButton("Ir a la izquierda");
+		irIzquierda.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				Casilla destino1 
+				Casilla casilla11=new Casilla(destinosPosibles, null));
+			}
+		});
+		
 		irIzquierda.setFont(new Font("Ink Free", Font.BOLD, 20));
 		panel.add(irIzquierda);
 		
