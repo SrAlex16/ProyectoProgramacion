@@ -1,5 +1,5 @@
 package clases;
 
-public class EntidadConNombre {
+public abstract class EntidadConNombre {
 	private String nombre;
 }

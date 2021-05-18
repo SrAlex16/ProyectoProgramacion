@@ -1,15 +1,20 @@
 package clases;
 
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 public class Casilla {
 	private ArrayList <Casilla> DestinosPosibles;
-	private Casilla casillaActual;
+	private byte numero;
+	private String descripcion;
+	private BufferedImage imagen;
+	private Enemigo enemigo;
 	
-	public Casilla(ArrayList<Casilla> destinosPosibles, Casilla casillaActual) {
+	public Casilla(byte numero) {
 		super();
-		DestinosPosibles = destinosPosibles;
-		this.casillaActual = casillaActual;
+		this.numero=numero;
+		//select * from casilla where numero=this.numero
+		//a partir de ahi rellenas destinosPosibles, descripcion, imagen, y enemigo.
 	}
 	
 	public ArrayList<Casilla> getDestinosPosibles() {
