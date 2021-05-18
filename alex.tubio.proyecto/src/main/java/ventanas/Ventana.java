@@ -65,8 +65,15 @@ public class Ventana extends JFrame{
 				if (mapa==null) {
 					mapa=new Mapa();
 					verMapa.setText("Cerrar mapa"); //Cambiar el texto del botón
-				//}else if(mapa.isActive()){
-					//mapa=null;
+				}
+			}
+		});
+		
+		verMapa.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(mapa!=null) {
+					mapa.dispose();
+					verMapa.setText("Abrir el mapa");
 				}
 			}
 		});
@@ -82,8 +89,7 @@ public class Ventana extends JFrame{
 		irIzquierda.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				Casilla destino1 
-				Casilla casilla11=new Casilla(destinosPosibles, null));
+				
 			}
 		});
 		
