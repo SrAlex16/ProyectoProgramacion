@@ -1,1 +1,5 @@
 /bin/
+target/
+*.class
+alex.tubio.proyecto/.classpath
+alex.tubio.proyecto/.settings/org.eclipse.jdt.core.prefs
