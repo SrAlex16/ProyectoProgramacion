@@ -1,6 +1,5 @@
 package main;
 
-import ventanas.Mapa;
 import ventanas.Ventana;
 
 public class Main {
