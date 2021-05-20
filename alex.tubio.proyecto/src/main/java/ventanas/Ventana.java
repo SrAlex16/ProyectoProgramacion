@@ -33,6 +33,7 @@ public class Ventana extends JFrame {
 			e.printStackTrace();
 		}
 		this.setContentPane(this.pantalla);
+		this.setVisible(true);
 		
 		// TODO Poner la casilla en la que te encuentras
 	}
