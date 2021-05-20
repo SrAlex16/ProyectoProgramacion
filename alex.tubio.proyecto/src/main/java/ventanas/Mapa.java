@@ -19,10 +19,10 @@ public class Mapa extends JFrame{
 	public Mapa() {
 		Image icono;
 		this.setUndecorated(true); //para quitar el borde de arriba de la ventana
-		this.setSize(645, 840);
+		this.setSize(630, 815);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		this.setTitle("Mapa del juego");
-		this.setResizable(false);
+		this.setTitle("Mapa GyZ");
+		//this.setResizable(false);
 		//getContentPane().setLayout(null);
 		
 		JLabel imagenMapa = new JLabel("New label");

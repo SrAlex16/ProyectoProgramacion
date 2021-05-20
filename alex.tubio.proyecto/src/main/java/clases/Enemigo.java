@@ -1,7 +1,9 @@
 package clases;
 
 public class Enemigo extends Personaje{
-	private ObjetoInventario drop;
+	private ObjetoInventario dropArma;
+
+	private ObjetoInventario dropArmadura;
 	
 	//soltarDrop()
 }
