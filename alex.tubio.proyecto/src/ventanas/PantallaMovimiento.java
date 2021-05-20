@@ -10,22 +10,14 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class PantallaMovimiento extends JFrame {
+public class PantallaMovimiento extends JPanel {
+	private Mapa mapa;
+	
 	public PantallaMovimiento(){
-		Mapa mapa;
-		this.setSize(884, 600);
-		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		this.setTitle("Goblins and Zombies");
-		this.setResizable(true);
-		getContentPane().setLayout(new BorderLayout(0, 0));
-
-		JPanel panel = new JPanel();
-		getContentPane().add(panel, BorderLayout.SOUTH);
-		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 		//crear boton del mapa
 		final JButton verMapa = new JButton("Ver el mapa"); // TODO Hacer que el mapa se cierre
-
+		
 		// abrir el mapa
 		verMapa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -33,35 +25,25 @@ public class PantallaMovimiento extends JFrame {
 				verMapa.setText("Cerrar mapa"); // Cambiar el texto del botón
 			}
 		});
-
-		// cerrar el mapa
-		verMapa.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (mapa != null) {
-					mapa.dispose();
-					verMapa.setText("Abrir el mapa");
-				}
-			}
-		});
 		
 		//botón "Ver el mapa"
 		verMapa.setFont(new Font("Ink Free", Font.BOLD, 20));
-		panel.add(verMapa);
+		this.add(verMapa);
 
 		//boton "Ir a la izquierda"
 		JButton irIzquierda = new JButton("Ir a la izquierda");
 		irIzquierda.setFont(new Font("Ink Free", Font.BOLD, 20));
-		panel.add(irIzquierda);
+		this.add(irIzquierda);
 
 		//boton "Ir a la derecha"
 		JButton irDerecha = new JButton("Ir a la derecha");
 		irDerecha.setFont(new Font("Ink Free", Font.BOLD, 20));
-		panel.add(irDerecha);
+		this.add(irDerecha);
 		
 		//boton "Ir a la izquierda"
 		JButton irRecto = new JButton("Ir recto");
 		irRecto.setFont(new Font("Ink Free", Font.BOLD, 20));
-		panel.add(irRecto);
+		this.add(irRecto);
 
 		this.setVisible(true);
 	}

@@ -23,17 +23,14 @@ public class Casilla {
 	public void setDestinosPosibles(ArrayList<Casilla> destinosPosibles) {
 		DestinosPosibles = destinosPosibles;
 	}
-	public Casilla getCasillaActual() {
-		return casillaActual;
-	}
-	public void setCasillaActual(Casilla casillaActual) {
-		this.casillaActual = casillaActual;
-	}
-	
+
 	@Override
 	public String toString() {
-		return "Casilla [DestinosPosibles=" + DestinosPosibles + ", casillaActual=" + casillaActual + "]";
+		return "Casilla [DestinosPosibles=" + DestinosPosibles + ", numero=" + numero + ", descripcion=" + descripcion
+				+ ", imagen=" + imagen + ", enemigo=" + enemigo + "]";
 	}
+	
+	
 	
 	
 }
