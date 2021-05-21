@@ -1,5 +1,5 @@
 package enums;
 
-public enum Enemigos {
+public enum TiposDeEnemigos{
 ZOMBIE, GOBLIN, DRAGON
 }

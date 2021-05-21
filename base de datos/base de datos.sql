@@ -12,8 +12,11 @@ CREATE TABLE `enemigo` (
   `nombre` varchar(20) NOT NULL,
   `ataque` int(11) DEFAULT NULL,
   `vida` int(11) DEFAULT NULL,
-  
-  PRIMARY KEY (`nombre`)
+   casilla int(2),
+   tipo varchar(6),
+   foreign key (casilla) references casilla(numero),
+   primary key(nombre,casilla)
+   
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE `objetoinventario` (
