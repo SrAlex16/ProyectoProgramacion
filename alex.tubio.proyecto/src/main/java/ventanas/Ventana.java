@@ -13,15 +13,16 @@ import javax.swing.JPanel;
 public class Ventana extends JFrame {
 	Mapa mapa;
 	Image icono;
-	//PantallaMovimiento pantalla=new PantallaMovimiento();
-	VentanaInicio ventanainicio=new VentanaInicio();
-	public Ventana() {
+	private PantallaMovimiento pantalla;
+	private VentanaInicio ventanaInicio;
 
+	public Ventana() {
+		ventanaInicio = new VentanaInicio();
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setTitle("Goblins and Zombies");
 		this.setResizable(true);
 		this.setSize(884, 600);
-		this.setLocation(650,100);
+		this.setLocation(650, 100);
 		getContentPane().setLayout(new BorderLayout(0, 0));
 
 		JPanel panel = new JPanel();
@@ -34,10 +35,19 @@ public class Ventana extends JFrame {
 			System.out.println("el icono no funciona");
 			e.printStackTrace();
 		}
-		//this.setContentPane(this.pantalla);
-		this.setContentPane(this.ventanainicio);
+		// this.setContentPane(this.pantalla);
+		this.setContentPane(ventanaInicio);
 		this.setVisible(true);
-		
+
 		// TODO Poner la casilla en la que te encuentras
+	}
+
+	public void cargaPantallaMovimiento() {
+		if (this.pantalla == null) {
+			pantalla = new PantallaMovimiento();
+		}
+		this.ventanaInicio.setVisible(false);
+		this.setContentPane(this.pantalla);
+		this.pantalla.setVisible(true);
 	}
 }

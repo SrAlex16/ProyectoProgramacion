@@ -5,6 +5,7 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -14,6 +15,7 @@ import javax.swing.JLabel;
 public class PantallaMovimiento extends JPanel {
 	private Mapa mapa;
 	private boolean mapaActivo=false;
+	private Ventana ventana;
 	
 	public PantallaMovimiento() {
 		setLayout(new BorderLayout(0, 0));
@@ -22,10 +24,10 @@ public class PantallaMovimiento extends JPanel {
 		add(panel, BorderLayout.SOUTH);
 
 		// crear boton del mapa
-		final JButton verMapa = new JButton("Ver el mapa"); // TODO Hacer que el mapa se cierre
+		final JButton verMapa = new JButton("Ver el mapa");
 		panel.add(verMapa);
 
-		// abrir el mapa
+		// abrir y cerrar el mapa
 		verMapa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(!mapaActivo) {

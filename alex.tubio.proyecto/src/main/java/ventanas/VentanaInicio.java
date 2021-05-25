@@ -9,6 +9,7 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.ImageIcon;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
@@ -21,6 +22,8 @@ import java.awt.event.MouseEvent;
 
 public class VentanaInicio extends JPanel{
 	private JTextField nombreJugador;
+	private Ventana ventana;
+	
 	public VentanaInicio() {
 		setBackground(Color.LIGHT_GRAY);
 		setForeground(Color.BLACK);
@@ -66,11 +69,18 @@ public class VentanaInicio extends JPanel{
 		
 		JButton okNombre = new JButton("OK");
 		okNombre.addMouseListener(new MouseAdapter() {
-			@Override
+			//@Override
+			String nombreJugadorStr;
+			//Ventana ventana;
+			//PantallaMovimiento pantalla;
 			public void mouseClicked(MouseEvent e) {
-				//TODO al pulsar el boton, que recoja el nombre del jugador en un String
+				nombreJugadorStr=nombreJugador.getText();
+				System.out.println(nombreJugadorStr);
+				ventana.cargaPantallaMovimiento();
+				
 			}
 		});
+		
 		okNombre.setBackground(Color.GRAY);
 		okNombre.setForeground(Color.BLACK);
 		okNombre.setFont(new Font("Segoe Script", Font.PLAIN, 15));
@@ -79,8 +89,6 @@ public class VentanaInicio extends JPanel{
 		gbc_okNombre.gridx = 3;
 		gbc_okNombre.gridy = 3;
 		add(okNombre, gbc_okNombre);
-		
-		//System.out.println(nombreJugador);
 	}
 	
 }
