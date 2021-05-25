@@ -8,7 +8,7 @@ public class Casilla {
 	private byte numero;
 	private String descripcion;
 	private BufferedImage imagen;
-	private Enemigo enemigo;
+	private Personaje enemigo;
 	
 	public Casilla(byte numero) {
 		super();

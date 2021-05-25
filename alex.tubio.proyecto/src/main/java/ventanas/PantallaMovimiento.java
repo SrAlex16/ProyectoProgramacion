@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 
 public class PantallaMovimiento extends JPanel {
-	private Mapa mapa;
+	private VentanaMapa mapa;
 	private boolean mapaActivo=false;
 	private Ventana ventana;
 	
@@ -31,7 +31,7 @@ public class PantallaMovimiento extends JPanel {
 		verMapa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(!mapaActivo) {
-				mapa = new Mapa();
+				mapa = new VentanaMapa();
 				verMapa.setText("Cerrar mapa"); // Cambiar el texto del botón
 				mapaActivo=true;
 				}else {

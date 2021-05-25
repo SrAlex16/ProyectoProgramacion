@@ -24,7 +24,8 @@ public class VentanaInicio extends JPanel{
 	private JTextField nombreJugador;
 	private Ventana ventana;
 	
-	public VentanaInicio() {
+	public VentanaInicio(Ventana v) {
+		this.ventana=v;
 		setBackground(Color.LIGHT_GRAY);
 		setForeground(Color.BLACK);
 		GridBagLayout gridBagLayout = new GridBagLayout();

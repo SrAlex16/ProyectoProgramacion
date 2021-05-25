@@ -15,8 +15,8 @@ import javax.imageio.ImageIO;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 
-public class Mapa extends JFrame{
-	public Mapa() {
+public class VentanaMapa extends JFrame{
+	public VentanaMapa() {
 		Image icono;
 		this.setUndecorated(true); //para quitar el borde de arriba de la ventana
 		this.setSize(630, 815);
@@ -26,7 +26,7 @@ public class Mapa extends JFrame{
 		//getContentPane().setLayout(null);
 		
 		JLabel imagenMapa = new JLabel("New label");
-		imagenMapa.setIcon(new ImageIcon(Mapa.class.getResource("/imagenes/mapa.jpg")));
+		imagenMapa.setIcon(new ImageIcon(VentanaMapa.class.getResource("/imagenes/mapa.jpg")));
 		imagenMapa.setBounds(0, -21, 634, 831);
 		getContentPane().add(imagenMapa);
 		
