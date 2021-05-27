@@ -21,8 +21,7 @@ public class Casilla {
 		try {
 			this.imagen=ImageIO.read(new File("./fondosCasilla/"+numero+".jpg"));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("No se ha podido poner el fondo")
 		}
 		//Select * from caminos_casilla where origen= numero
 		//metes en el arraylist todos los numeros de casilla destino que salgan
@@ -35,7 +34,7 @@ public class Casilla {
 		//Crear el objecto armadura
 		//Crear el objeto enemigo y ponerlo en this. enemigo.
 		
-		//buscar fondos de las casillas
+		//buscar fondos de las casillas 275x183
 	}
 	
 	public ArrayList<Casilla> getDestinosPosibles() {
