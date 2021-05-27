@@ -6,6 +6,11 @@ import java.awt.BorderLayout;
 import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.awt.Image;
 
 import javax.swing.JPanel;
@@ -18,12 +23,9 @@ public class Ventana extends JFrame {
 	private Image icono;
 	private PantallaMovimiento pantalla;
 	private VentanaInicio ventanaInicio;
-	private Casilla[] mapa;
 	private Protagonista protagonista;
 
-	public Ventana() {
-		//TODO leer de base de datos todas las casillas con todos los enemigos y todas las armas en el mapa
-		
+	public Ventana() {		
 		ventanaInicio = new VentanaInicio(this);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setTitle("Goblins and Zombies");
@@ -43,16 +45,32 @@ public class Ventana extends JFrame {
 			System.out.println("el icono no funciona");
 			e.printStackTrace();
 		}
-		// this.setContentPane(this.pantalla);
 		this.setContentPane(ventanaInicio);
 		this.setVisible(true);
-
-		// TODO Poner la casilla en la que te encuentras
 	}
 
 	public void cargaPantallaMovimiento() {
 		if (this.pantalla == null) {
-			pantalla = new PantallaMovimiento();
+			//Consultar de base de datos todos los datos necesarios para crear la casilla numero 1
+			Connection conexion;
+			try {
+				conexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1/goblinsandzombies", "root", "admin");
+				Statement smt = conexion.createStatement();
+				ResultSet resultCasilla=smt.executeQuery("select * from casilla where numero=1");
+				//select * from casilla where numero=1;
+				Casilla actual=null;
+				if(resultCasilla.next()) {
+					int numero=resultCasilla.getInt("numero");
+					String descripcion=resultCasilla.getString("descripcion");
+					actual=new Casilla((byte)numero,descripcion);
+				}
+				//Crear el objeto casilla
+				pantalla = new PantallaMovimiento(actual);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 		}
 		this.ventanaInicio.setVisible(false);
 		this.setContentPane(this.pantalla);

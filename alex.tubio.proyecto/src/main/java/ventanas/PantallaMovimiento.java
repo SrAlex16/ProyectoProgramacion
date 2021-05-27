@@ -10,6 +10,9 @@ import java.awt.event.MouseAdapter;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import clases.Casilla;
+
 import javax.swing.JLabel;
 
 public class PantallaMovimiento extends JPanel {
@@ -17,7 +20,7 @@ public class PantallaMovimiento extends JPanel {
 	private boolean mapaActivo=false;
 	private Ventana ventana;
 	
-	public PantallaMovimiento() {
+	public PantallaMovimiento(Casilla actual) {
 		setLayout(new BorderLayout(0, 0));
 
 		JPanel panel = new JPanel();
@@ -48,17 +51,12 @@ public class PantallaMovimiento extends JPanel {
 		verMapa.setFont(new Font("Ink Free", Font.BOLD, 20));
 
 		// boton "Ir a la izquierda"
-		JButton irRecto = new JButton("Ir recto");
+		JButton irRecto = new JButton("Pasillo A");
 		panel.add(irRecto);
 		irRecto.setFont(new Font("Ink Free", Font.BOLD, 20));
 
-		// boton "Ir a la izquierda"
-		JButton irIzquierda = new JButton("Ir a la izquierda");
-		panel.add(irIzquierda);
-		irIzquierda.setFont(new Font("Ink Free", Font.BOLD, 20));
-
 		// boton "Ir a la derecha"
-		JButton irDerecha = new JButton("Ir a la derecha");
+		JButton irDerecha = new JButton("Pasillo B");
 		panel.add(irDerecha);
 		irDerecha.setFont(new Font("Ink Free", Font.BOLD, 20));
 		
