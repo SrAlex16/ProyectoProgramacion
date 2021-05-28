@@ -54,21 +54,27 @@ public class Ventana extends JFrame {
 			//Consultar de base de datos todos los datos necesarios para crear la casilla numero 1
 			Connection conexion;
 			try {
+				//1- Crear conexion con la base de datos
+				//base de datos, usuario, contraseña
 				conexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1/goblinsandzombies", "root", "admin");
+				
+				//2- Crer objeto Statement
 				Statement smt = conexion.createStatement();
+				
+				//3- Crear el objeto ResultSet para hacer select en la base de datos
 				ResultSet resultCasilla=smt.executeQuery("select * from casilla where numero=1");
-				//select * from casilla where numero=1;
+				
+				//4- Leer el ResulSet
 				Casilla actual=null;
 				if(resultCasilla.next()) {
-					int numero=resultCasilla.getInt("numero");
-					String descripcion=resultCasilla.getString("descripcion");
+					int numero=resultCasilla.getInt("numero"); //numero de la casilla
+					String descripcion=resultCasilla.getString("descripcion"); //descripcion de la casilla
 					actual=new Casilla((byte)numero,descripcion);
 				}
 				//Crear el objeto casilla
 				pantalla = new PantallaMovimiento(actual);
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				System.out.println("No se ha podido leer la tabla de la base de datos (Ventana)");
 			}
 			
 		}
