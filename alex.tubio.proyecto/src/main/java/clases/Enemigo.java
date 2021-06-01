@@ -14,6 +14,10 @@ public class Enemigo extends Personaje{
 		this.dropArmadura = dropArmadura;
 	}
 
+	public Enemigo(Personaje enemigo) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public ObjetoInventario getDropArma() {
 		return dropArma;
 	}

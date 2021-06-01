@@ -15,13 +15,15 @@ import javax.imageio.ImageIO;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 
+import excepciones.ImgException;
+
 public class VentanaMapa extends JFrame{
-	public VentanaMapa() {
+	public VentanaMapa() throws ImgException {
 		Image icono;
 		this.setUndecorated(true); //para quitar el borde de arriba de la ventana
 		this.setSize(630, 815);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		this.setTitle("Mapa GyZ");
+		//this.setTitle("Mapa GyZ");
 		//this.setResizable(false);
 		//getContentPane().setLayout(null);
 		
@@ -34,8 +36,7 @@ public class VentanaMapa extends JFrame{
 			icono = ImageIO.read(new File("./icono.png"));
 			this.setIconImage(icono);
 		} catch (IOException e) {
-			System.out.println("el icono no funciona");
-			e.printStackTrace();
+			throw new ImgException ("No se ha podido mostrar el mapa (VentanaMapa)");
 		}
 		
 		this.setVisible(true);

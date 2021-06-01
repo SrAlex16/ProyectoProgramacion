@@ -17,6 +17,8 @@ import javax.swing.JPanel;
 
 import clases.Casilla;
 import clases.Protagonista;
+import excepciones.BaseDeDatosException;
+import excepciones.ImgException;
 
 public class Ventana extends JFrame {
 	private VentanaMapa ventanaMapa;
@@ -25,7 +27,7 @@ public class Ventana extends JFrame {
 	private VentanaInicio ventanaInicio;
 	private Protagonista protagonista;
 
-	public Ventana() {		
+	public Ventana() throws ImgException {		
 		ventanaInicio = new VentanaInicio(this);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setTitle("Goblins and Zombies");
@@ -42,8 +44,7 @@ public class Ventana extends JFrame {
 			icono = ImageIO.read(new File("./icono.png"));
 			this.setIconImage(icono);
 		} catch (IOException e) {
-			System.out.println("el icono no funciona");
-			e.printStackTrace();
+			throw new ImgException ("El icono no funciona (Ventana)");
 		}
 		this.setContentPane(ventanaInicio);
 		this.setVisible(true);
@@ -74,7 +75,7 @@ public class Ventana extends JFrame {
 				//Crear el objeto casilla
 				pantalla = new PantallaMovimiento(actual);
 			} catch (SQLException e) {
-				System.out.println("No se ha podido leer la tabla de la base de datos (Ventana)");
+				throw new BaseDeDatosException("No se ha podido leer la tabla de la base de datos (Ventana)");
 			}
 			
 		}

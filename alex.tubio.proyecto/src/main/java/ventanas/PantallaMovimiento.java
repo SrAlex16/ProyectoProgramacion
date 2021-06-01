@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import clases.Casilla;
+import excepciones.ImgException;
 
 import javax.swing.JLabel;
 
@@ -34,7 +35,11 @@ public class PantallaMovimiento extends JPanel {
 		verMapa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(!mapaActivo) {
-				mapa = new VentanaMapa();
+				try {
+					mapa = new VentanaMapa();
+				} catch (ImgException e1) {
+					throw new ImgException ("No se ha podido mostrar el mapa (VentanaMapa)");
+				}
 				verMapa.setText("Cerrar mapa"); // Cambiar el texto del botón
 				mapaActivo=true;
 				}else {

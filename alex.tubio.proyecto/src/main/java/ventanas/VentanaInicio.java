@@ -7,6 +7,9 @@ import java.awt.BorderLayout;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
+
+import excepciones.NombreIncorrectoException;
+
 import javax.swing.ImageIcon;
 import java.awt.Color;
 import java.awt.Cursor;
@@ -76,6 +79,9 @@ public class VentanaInicio extends JPanel{
 			//PantallaMovimiento pantalla;
 			public void mouseClicked(MouseEvent e) {
 				nombreJugadorStr=nombreJugador.getText();
+				if(nombreJugadorStr.isBlank()) {
+					throw new NombreIncorrectoException("El nombre introducido no es correcto");
+				}
 				System.out.println(nombreJugadorStr);
 				ventana.cargaPantallaMovimiento();
 				
