@@ -19,6 +19,7 @@ import clases.Casilla;
 import clases.Protagonista;
 import excepciones.BaseDeDatosException;
 import excepciones.ImgException;
+import excepciones.NumeroCasillaNoExisteException;
 
 public class Ventana extends JFrame {
 	private VentanaMapa ventanaMapa;
@@ -50,7 +51,7 @@ public class Ventana extends JFrame {
 		this.setVisible(true);
 	}
 
-	public void cargaPantallaMovimiento() {
+	public void cargaPantallaMovimiento() throws BaseDeDatosException, ImgException, NumeroCasillaNoExisteException {
 		if (this.pantalla == null) {
 			//Consultar de base de datos todos los datos necesarios para crear la casilla numero 1
 			Connection conexion;
@@ -77,10 +78,10 @@ public class Ventana extends JFrame {
 			} catch (SQLException e) {
 				throw new BaseDeDatosException("No se ha podido leer la tabla de la base de datos (Ventana)");
 			}
-			
-		}
+				
 		this.ventanaInicio.setVisible(false);
 		this.setContentPane(this.pantalla);
 		this.pantalla.setVisible(true);
+	}
 	}
 }

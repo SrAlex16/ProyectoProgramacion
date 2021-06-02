@@ -15,11 +15,14 @@ import clases.Casilla;
 import excepciones.ImgException;
 
 import javax.swing.JLabel;
+import java.awt.event.MouseEvent;
 
 public class PantallaMovimiento extends JPanel {
 	private VentanaMapa mapa;
 	private boolean mapaActivo=false;
 	private Ventana ventana;
+	private VerEnemigos verEnemigos;
+	private boolean bestiarioActivo;
 	
 	public PantallaMovimiento(Casilla actual) {
 		setLayout(new BorderLayout(0, 0));
@@ -38,7 +41,7 @@ public class PantallaMovimiento extends JPanel {
 				try {
 					mapa = new VentanaMapa();
 				} catch (ImgException e1) {
-					throw new ImgException ("No se ha podido mostrar el mapa (VentanaMapa)");
+					//throw new ImgException ("No se ha podido mostrar el mapa (VentanaMapa)");
 				}
 				verMapa.setText("Cerrar mapa"); // Cambiar el texto del botón
 				mapaActivo=true;
@@ -49,6 +52,29 @@ public class PantallaMovimiento extends JPanel {
 					mapa.dispose();
 					mapa=null;
 				}
+			}
+		});
+		
+		//boton "bestiario"
+				JButton bestiario = new JButton("Abrir Bestiario");
+				verEnemigos.setFont(new Font("Ink Free", Font.BOLD, 20));
+				panel.add(verEnemigos);
+		
+		//abrir y cerrar el bestiario
+		verEnemigos.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(!bestiarioActivo){
+					verEnemigos= new VerEnemigos();
+					bestiario.setText("Cerrar Bestiario");
+				}else {
+					bestiario.setText("Abrir bestiario");
+					bestiarioActivo=false;
+					verEnemigos.setVisible(false);
+					verEnemigos.dispose();
+					verEnemigos=null;
+				}
+				
 			}
 		});
 

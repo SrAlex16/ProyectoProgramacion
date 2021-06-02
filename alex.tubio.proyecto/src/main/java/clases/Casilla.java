@@ -23,7 +23,7 @@ public class Casilla {
 	private BufferedImage imagen;
 	private Personaje enemigo;
 	
-	public Casilla(byte numero) throws BaseDeDatosException, SQLException, ImgException, NumeroCasillaNoExisteException {
+	public Casilla(byte numero, String descripcion) throws BaseDeDatosException, SQLException, ImgException, NumeroCasillaNoExisteException {
 		super();
 		destinosPosibles=new ArrayList<Byte>();
 		this.numero=numero;

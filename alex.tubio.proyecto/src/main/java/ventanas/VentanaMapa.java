@@ -32,12 +32,14 @@ public class VentanaMapa extends JFrame{
 		imagenMapa.setBounds(0, -21, 634, 831);
 		getContentPane().add(imagenMapa);
 		
+		/*
 		try {
 			icono = ImageIO.read(new File("./icono.png"));
 			this.setIconImage(icono);
 		} catch (IOException e) {
 			throw new ImgException ("No se ha podido mostrar el mapa (VentanaMapa)");
 		}
+		*/
 		
 		this.setVisible(true);
 	}
