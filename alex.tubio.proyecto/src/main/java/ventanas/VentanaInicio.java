@@ -8,7 +8,10 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
 
+import excepciones.BaseDeDatosException;
+import excepciones.ImgException;
 import excepciones.NombreIncorrectoException;
+import excepciones.NumeroCasillaNoExisteException;
 
 import javax.swing.ImageIcon;
 import java.awt.Color;
@@ -79,11 +82,18 @@ public class VentanaInicio extends JPanel{
 			//PantallaMovimiento pantalla;
 			public void mouseClicked(MouseEvent e) {
 				nombreJugadorStr=nombreJugador.getText();
-				if(nombreJugadorStr.isBlank()) {
-					throw new NombreIncorrectoException("El nombre introducido no es correcto");
-				}
 				System.out.println(nombreJugadorStr);
-				ventana.cargaPantallaMovimiento();
+				try {
+					ventana.cargaPantallaMovimiento();
+				} catch (BaseDeDatosException e1) {
+					System.out.println("No se han podido leer los datos de la base de datos (VentanaInicio)");
+					e1.printStackTrace();
+				} catch (ImgException e1) {
+					System.out.println("Img Exception (VentanaInicio)");
+					e1.printStackTrace();
+				} catch (NumeroCasillaNoExisteException e1) {
+					System.out.println("La casilla no existe (ventanaInicio)");
+				}
 				
 			}
 		});
@@ -97,5 +107,22 @@ public class VentanaInicio extends JPanel{
 		gbc_okNombre.gridy = 3;
 		add(okNombre, gbc_okNombre);
 	}
+
+	public JTextField getNombreJugador() {
+		return nombreJugador;
+	}
+
+	public void setNombreJugador(JTextField nombreJugador, String nombrejugadorStr) {
+		
+	}
+
+	public Ventana getVentana() {
+		return ventana;
+	}
+
+	public void setVentana(Ventana ventana) {
+		this.ventana = ventana;
+	}
+	
 	
 }

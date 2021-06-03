@@ -9,14 +9,11 @@ import ventanas.VerEnemigos;
 
 public class Main {
 	public static void main (String[] args) throws VentanaException {
-		VerEnemigos ventana=new VerEnemigos();
-		/*
 		try {
-			
+			Ventana ventana=new Ventana();
 		} catch (ImgException e) {
 			throw new VentanaException("No se ha podido crear la ventana (Main)");
 		}
 		//PantallaMovimiento p = new PantallaMovimiento();
-		 * */
 	}
 }

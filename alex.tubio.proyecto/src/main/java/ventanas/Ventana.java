@@ -58,7 +58,7 @@ public class Ventana extends JFrame {
 			try {
 				//1- Crear conexion con la base de datos
 				//base de datos, usuario, contraseña
-				conexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1/goblinsandzombies", "root", "admin");
+				conexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1/goblinsandzombies", "alex", "alex");
 				
 				//2- Crer objeto Statement
 				Statement smt = conexion.createStatement();
@@ -76,7 +76,9 @@ public class Ventana extends JFrame {
 				//Crear el objeto casilla
 				pantalla = new PantallaMovimiento(actual);
 			} catch (SQLException e) {
+				e.printStackTrace();
 				throw new BaseDeDatosException("No se ha podido leer la tabla de la base de datos (Ventana)");
+				
 			}
 				
 		this.ventanaInicio.setVisible(false);

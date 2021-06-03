@@ -3,27 +3,14 @@ package clases;
 import enums.TiposDeEnemigos;
 
 public class Enemigo extends Personaje{
-	private ObjetoInventario dropArma;
 	private TiposDeEnemigos tipo;
-	private ObjetoInventario dropArmadura;
 	
-	public Enemigo(ObjetoInventario dropArma, TiposDeEnemigos tipo, ObjetoInventario dropArmadura) {
-		super();
-		this.dropArma = dropArma;
+	public Enemigo(TiposDeEnemigos tipo, String nombre, byte ataque, byte vida, Armadura armadura, Arma arma,
+			Casilla dondeEstoy) {
+		super(nombre, ataque, vida, armadura, arma, dondeEstoy);
 		this.tipo = tipo;
-		this.dropArmadura = dropArmadura;
-	}
-
-	public Enemigo(Personaje enemigo) {
-		// TODO Auto-generated constructor stub
-	}
-
-	public ObjetoInventario getDropArma() {
-		return dropArma;
-	}
-
-	public void setDropArma(ObjetoInventario dropArma) {
-		this.dropArma = dropArma;
+		
+	//soltarDrop()
 	}
 
 	public TiposDeEnemigos getTipo() {
@@ -33,15 +20,4 @@ public class Enemigo extends Personaje{
 	public void setTipo(TiposDeEnemigos tipo) {
 		this.tipo = tipo;
 	}
-
-	public ObjetoInventario getDropArmadura() {
-		return dropArmadura;
-	}
-
-	public void setDropArmadura(ObjetoInventario dropArmadura) {
-		this.dropArmadura = dropArmadura;
-	}
-	
-	//soltarDrop()
-	
 }

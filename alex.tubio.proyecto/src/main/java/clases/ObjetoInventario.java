@@ -5,8 +5,8 @@ public class ObjetoInventario extends EntidadConNombre{
 	private byte vidaAportada;
 	private byte ataqueAportado;
 	
-	public ObjetoInventario(boolean unSoloUso, byte vidaAportada, byte ataqueAportado) {
-		super();
+	public ObjetoInventario(boolean unSoloUso, byte vidaAportada, byte ataqueAportado, String nombre) {
+		super(nombre);
 		this.unSoloUso = unSoloUso;
 		this.vidaAportada = vidaAportada;
 		this.ataqueAportado = ataqueAportado;

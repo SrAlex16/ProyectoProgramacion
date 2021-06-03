@@ -56,9 +56,11 @@ public class PantallaMovimiento extends JPanel {
 		});
 		
 		//boton "bestiario"
-				JButton bestiario = new JButton("Abrir Bestiario");
-				verEnemigos.setFont(new Font("Ink Free", Font.BOLD, 20));
-				panel.add(verEnemigos);
+		verEnemigos= new VerEnemigos();
+		
+		final JButton bestiario = new JButton("Abrir Bestiario");
+		verEnemigos.setFont(new Font("Ink Free", Font.BOLD, 20));
+		panel.add(bestiario);
 		
 		//abrir y cerrar el bestiario
 		verEnemigos.addMouseListener(new MouseAdapter() {
@@ -77,6 +79,8 @@ public class PantallaMovimiento extends JPanel {
 				
 			}
 		});
+		
+		
 
 		// botón "Ver el mapa"
 		verMapa.setFont(new Font("Ink Free", Font.BOLD, 20));

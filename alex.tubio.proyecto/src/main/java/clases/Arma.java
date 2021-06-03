@@ -2,7 +2,10 @@ package clases;
 
 public class Arma extends ObjetoInventario{
 
-	public Arma(String descripcion, int ataque) {
+	public Arma(boolean unSoloUso, byte vidaAportada, byte ataqueAportado, String nombre) {
+		super(unSoloUso, vidaAportada, ataqueAportado, nombre);
 		// TODO Auto-generated constructor stub
 	}
+
+	
 }
