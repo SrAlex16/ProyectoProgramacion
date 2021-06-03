@@ -1,5 +1,7 @@
 package clases;
 
+import excepciones.NombreIncorrectoException;
+
 public class Personaje extends EntidadConNombre{
 	private byte ataque;
 	private byte vida;
@@ -7,7 +9,7 @@ public class Personaje extends EntidadConNombre{
 	private Arma arma;
 	private Casilla dondeEstoy;
 	
-	public Personaje(String nombre, byte ataque, byte vida, Armadura armadura, Arma arma, Casilla dondeEstoy) {
+	public Personaje(String nombre, byte ataque, byte vida, Armadura armadura, Arma arma, Casilla dondeEstoy) throws NombreIncorrectoException {
 		super(nombre);
 		this.ataque = ataque;
 		this.vida = vida;

@@ -63,18 +63,9 @@ public class Ventana extends JFrame {
 				//2- Crer objeto Statement
 				Statement smt = conexion.createStatement();
 				
-				//3- Crear el objeto ResultSet para hacer select en la base de datos
-				ResultSet resultCasilla=smt.executeQuery("select * from casilla where numero=1");
-				
-				//4- Leer el ResulSet
-				Casilla actual=null;
-				if(resultCasilla.next()) {
-					int numero=resultCasilla.getInt("numero"); //numero de la casilla
-					String descripcion=resultCasilla.getString("descripcion"); //descripcion de la casilla
-					actual=new Casilla((byte)numero,descripcion);
-				}
+	
 				//Crear el objeto casilla
-				pantalla = new PantallaMovimiento(actual);
+				pantalla = new PantallaMovimiento(new Casilla((byte)1));
 			} catch (SQLException e) {
 				e.printStackTrace();
 				throw new BaseDeDatosException("No se ha podido leer la tabla de la base de datos (Ventana)");
@@ -86,4 +77,13 @@ public class Ventana extends JFrame {
 		this.pantalla.setVisible(true);
 	}
 	}
+
+	public Protagonista getProtagonista() {
+		return protagonista;
+	}
+
+	public void setProtagonista(Protagonista protagonista) {
+		this.protagonista = protagonista;
+	}
+	
 }

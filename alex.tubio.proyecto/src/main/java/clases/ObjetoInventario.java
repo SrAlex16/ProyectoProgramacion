@@ -1,11 +1,13 @@
 package clases;
 
+import excepciones.NombreIncorrectoException;
+
 public class ObjetoInventario extends EntidadConNombre{
 	private boolean unSoloUso;
 	private byte vidaAportada;
 	private byte ataqueAportado;
 	
-	public ObjetoInventario(boolean unSoloUso, byte vidaAportada, byte ataqueAportado, String nombre) {
+	public ObjetoInventario(boolean unSoloUso, byte vidaAportada, byte ataqueAportado, String nombre) throws NombreIncorrectoException {
 		super(nombre);
 		this.unSoloUso = unSoloUso;
 		this.vidaAportada = vidaAportada;

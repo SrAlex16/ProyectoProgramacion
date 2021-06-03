@@ -1,12 +1,13 @@
 package clases;
 
 import enums.TiposDeEnemigos;
+import excepciones.NombreIncorrectoException;
 
 public class Enemigo extends Personaje{
 	private TiposDeEnemigos tipo;
 	
 	public Enemigo(TiposDeEnemigos tipo, String nombre, byte ataque, byte vida, Armadura armadura, Arma arma,
-			Casilla dondeEstoy) {
+			Casilla dondeEstoy) throws NombreIncorrectoException {
 		super(nombre, ataque, vida, armadura, arma, dondeEstoy);
 		this.tipo = tipo;
 		

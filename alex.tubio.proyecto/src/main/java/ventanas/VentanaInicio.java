@@ -8,6 +8,8 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
 
+import clases.EntidadConNombre;
+import clases.Protagonista;
 import excepciones.BaseDeDatosException;
 import excepciones.ImgException;
 import excepciones.NombreIncorrectoException;
@@ -84,7 +86,13 @@ public class VentanaInicio extends JPanel{
 				nombreJugadorStr=nombreJugador.getText();
 				System.out.println(nombreJugadorStr);
 				try {
-					ventana.cargaPantallaMovimiento();
+					try {
+						ventana.setProtagonista(new Protagonista(nombreJugadorStr));
+						ventana.cargaPantallaMovimiento();
+					} catch (NombreIncorrectoException e1) {
+						System.out.println("el nombre no puede quedar en blanco (VentanaInicio)");
+						e1.printStackTrace();
+					}
 				} catch (BaseDeDatosException e1) {
 					System.out.println("No se han podido leer los datos de la base de datos (VentanaInicio)");
 					e1.printStackTrace();

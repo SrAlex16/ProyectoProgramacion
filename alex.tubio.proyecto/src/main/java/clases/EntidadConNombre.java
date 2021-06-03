@@ -5,9 +5,9 @@ import excepciones.NombreIncorrectoException;
 public abstract class EntidadConNombre {
 	private String nombre;
 
-	public EntidadConNombre(String nombre) {
+	public EntidadConNombre(String nombre) throws NombreIncorrectoException {
 		super();
-		this.nombre = nombre;
+		setNombre(nombre);
 	}
 
 	public String getNombre() {
