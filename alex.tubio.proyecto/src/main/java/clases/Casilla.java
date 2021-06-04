@@ -25,7 +25,7 @@ import excepciones.NumeroCasillaNoExisteException;
 public class Casilla {
 	private ArrayList<Byte> destinosPosibles;
 	private byte numero;
-	private static String descripcion;
+	private String descripcion;
 	private BufferedImage imagen;
 	private Personaje enemigo;
 
@@ -196,14 +196,14 @@ public class Casilla {
 		this.destinosPosibles = destinosPosibles;
 	}
 	
-	public static String getDescripcion() {
+	public String getDescripcion() {
 		return descripcion;
 	}
 
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "Casilla [DestinosPosibles=" + destinosPosibles + ", numero=" + numero + ", descripcion=" + descripcion

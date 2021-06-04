@@ -91,7 +91,7 @@ public class PantallaMovimiento extends JPanel {
 		panel.add(bestiario);
 		bestiario.setFont(new Font("Ink Free", Font.BOLD, 20));
 		
-		JTextArea descripcion = new JTextArea(Casilla.getDescripcion());
+		JTextArea descripcion = new JTextArea(actual.getDescripcion());
 		descripcion.setEditable(false);
 		descripcion.setForeground(Color.WHITE);
 		descripcion.setFont(new Font("Ink Free", Font.PLAIN, 18));
@@ -105,7 +105,7 @@ public class PantallaMovimiento extends JPanel {
 					try {
 						enemigos= new VerEnemigos();
 					} catch (ImgException e1) {
-						System.out.println("No se ha podido mostrar el bestiario (VentanaMovimiento)");
+						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
 					bestiario.setText("Cerrar Bestiario");

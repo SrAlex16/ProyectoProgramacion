@@ -40,8 +40,8 @@ public class VerEnemigos extends JFrame {
 		
 		//imagen aleatoria
 		Random ran = new Random();
-		numeroAleatorioZombies = (byte) ran.nextInt(5);
-		numeroAleatorioGoblins = (byte) ran.nextInt(6);
+		numeroAleatorioZombies = (byte) (ran.nextInt(4)+1);
+		numeroAleatorioGoblins = (byte) (ran.nextInt(5)+1);
 		String strZombies=numeroAleatorioZombies+"";
 		String strGoblins=numeroAleatorioGoblins+"";
 		
