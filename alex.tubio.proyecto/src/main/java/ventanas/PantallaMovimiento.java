@@ -16,6 +16,8 @@ import excepciones.ImgException;
 
 import javax.swing.JLabel;
 import java.awt.event.MouseEvent;
+import javax.swing.JTextArea;
+import java.awt.Color;
 
 public class PantallaMovimiento extends JPanel {
 	private VentanaMapa mapa;
@@ -25,9 +27,11 @@ public class PantallaMovimiento extends JPanel {
 	private boolean bestiarioActivo=false;
 	
 	public PantallaMovimiento(Casilla actual) {
+		setBackground(Color.GRAY);
 		setLayout(new BorderLayout(0, 0));
 
 		JPanel panel = new JPanel();
+		panel.setBackground(Color.GRAY);
 		add(panel, BorderLayout.SOUTH);
 
 		// crear boton del mapa
@@ -71,6 +75,12 @@ public class PantallaMovimiento extends JPanel {
 		panel.add(bestiario);
 		bestiario.setFont(new Font("Ink Free", Font.BOLD, 20));
 		
+		JTextArea descripcion = new JTextArea(Casilla.getDescripcion());
+		descripcion.setForeground(Color.WHITE);
+		descripcion.setFont(new Font("Ink Free", Font.PLAIN, 18));
+		descripcion.setBackground(Color.DARK_GRAY);
+		add(descripcion, BorderLayout.CENTER);
+		
 		//abrir y cerrar el bestiario
 		bestiario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -88,11 +98,6 @@ public class PantallaMovimiento extends JPanel {
 				
 			}
 		});
-		
-		//Select * from casilla where numero=1
-		
-		JLabel textoCasilla = new JLabel(Casilla.getDescripcion());
-		add(textoCasilla, BorderLayout.CENTER);
 
 		this.setVisible(true);
 	}
