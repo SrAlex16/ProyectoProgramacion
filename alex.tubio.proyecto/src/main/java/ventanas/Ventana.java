@@ -20,7 +20,11 @@ import clases.Protagonista;
 import excepciones.BaseDeDatosException;
 import excepciones.ImgException;
 import excepciones.NumeroCasillaNoExisteException;
-
+/**
+ * 
+ * @author alejandro
+ *
+ */
 public class Ventana extends JFrame {
 	private VentanaMapa ventanaMapa;
 	private Image icono;

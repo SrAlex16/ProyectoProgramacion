@@ -2,7 +2,11 @@ package clases;
 
 import enums.TiposDeEnemigos;
 import excepciones.NombreIncorrectoException;
-
+/**
+ * 
+ * @author alejandro
+ *
+ */
 public class Enemigo extends Personaje{
 	private TiposDeEnemigos tipo;
 	

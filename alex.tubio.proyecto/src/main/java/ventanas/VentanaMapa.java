@@ -16,7 +16,11 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 
 import excepciones.ImgException;
-
+/**
+ * 
+ * @author alejandro
+ *
+ */
 public class VentanaMapa extends JFrame{
 	public VentanaMapa() throws ImgException {
 		this.setUndecorated(true); //para quitar el borde de arriba de la ventana

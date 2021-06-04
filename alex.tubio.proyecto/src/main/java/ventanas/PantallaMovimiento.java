@@ -18,13 +18,18 @@ import javax.swing.JLabel;
 import java.awt.event.MouseEvent;
 import javax.swing.JTextArea;
 import java.awt.Color;
-
+/**
+ * 
+ * @author alejandro
+ *
+ */
 public class PantallaMovimiento extends JPanel {
 	private VentanaMapa mapa;
 	private boolean mapaActivo=false;
 	private Ventana ventana;
 	private VerEnemigos enemigos;
 	private boolean bestiarioActivo=false;
+	private byte numeroPasillo;
 	
 	public PantallaMovimiento(Casilla actual) {
 		setBackground(Color.GRAY);
@@ -61,14 +66,25 @@ public class PantallaMovimiento extends JPanel {
 		});
 
 		// boton "Ir a la izquierda"
-		JButton irRecto = new JButton("Pasillo A");
-		panel.add(irRecto);
-		irRecto.setFont(new Font("Ink Free", Font.BOLD, 20));
+		JButton pasilloA = new JButton("Pasillo A");
+		panel.add(pasilloA);
+		pasilloA.setFont(new Font("Ink Free", Font.BOLD, 20));
 
+		pasilloA.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//TODO moverte entre las casillas
+			}
+		});
+		
 		// boton "Ir a la derecha"
-		JButton irDerecha = new JButton("Pasillo B");
-		panel.add(irDerecha);
-		irDerecha.setFont(new Font("Ink Free", Font.BOLD, 20));
+		JButton pasilloB = new JButton("Pasillo B");
+		panel.add(pasilloB);
+		pasilloB.setFont(new Font("Ink Free", Font.BOLD, 20));
+		pasilloB.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//TODO moverte entre las casillas
+			}
+		});
 		
 		//crear boton "bestiario"
 		final JButton bestiario = new JButton("Abrir Bestiario");
@@ -76,6 +92,7 @@ public class PantallaMovimiento extends JPanel {
 		bestiario.setFont(new Font("Ink Free", Font.BOLD, 20));
 		
 		JTextArea descripcion = new JTextArea(Casilla.getDescripcion());
+		descripcion.setEditable(false);
 		descripcion.setForeground(Color.WHITE);
 		descripcion.setFont(new Font("Ink Free", Font.PLAIN, 18));
 		descripcion.setBackground(Color.DARK_GRAY);
@@ -85,10 +102,15 @@ public class PantallaMovimiento extends JPanel {
 		bestiario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(!bestiarioActivo){
-					enemigos= new VerEnemigos();
+					try {
+						enemigos= new VerEnemigos();
+					} catch (ImgException e1) {
+						System.out.println("No se ha podido mostrar el bestiario (VentanaMovimiento)");
+						e1.printStackTrace();
+					}
 					bestiario.setText("Cerrar Bestiario");
 					bestiarioActivo=true;
-				}else {
+				}else{
 					bestiario.setText("Abrir bestiario");
 					bestiarioActivo=false;
 					enemigos.setVisible(false);
@@ -98,7 +120,6 @@ public class PantallaMovimiento extends JPanel {
 				
 			}
 		});
-
 		this.setVisible(true);
 	}
 }

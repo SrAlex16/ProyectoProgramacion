@@ -6,7 +6,11 @@ import ventanas.PantallaMovimiento;
 import ventanas.Ventana;
 import ventanas.VentanaInicio;
 import ventanas.VerEnemigos;
-
+/**
+ * 
+ * @author alejandro
+ *
+ */
 public class Main {
 	public static void main (String[] args) throws VentanaException {
 		try {

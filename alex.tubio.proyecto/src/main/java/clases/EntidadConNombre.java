@@ -1,7 +1,11 @@
 package clases;
 
 import excepciones.NombreIncorrectoException;
-
+/**
+ * 
+ * @author alejandro
+ *
+ */
 public abstract class EntidadConNombre {
 	private String nombre;
 

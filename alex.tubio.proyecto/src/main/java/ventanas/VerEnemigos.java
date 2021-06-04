@@ -15,15 +15,22 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Random;
 import javax.swing.JTextPane;
+
+import excepciones.ImgException;
+
 import java.awt.Font;
 import javax.swing.JTextArea;
 import java.awt.Color;
-
+/**
+ * 
+ * @author alejandro
+ *
+ */
 public class VerEnemigos extends JFrame {
 	private byte numeroAleatorioZombies;
 	private byte numeroAleatorioGoblins;
 
-	public VerEnemigos() {
+	public VerEnemigos() throws ImgException{
 		getContentPane().setBackground(Color.LIGHT_GRAY);
 		getContentPane().setForeground(Color.LIGHT_GRAY);
 		this.setUndecorated(true); //para quitar el borde de arriba de la ventana
@@ -45,6 +52,7 @@ public class VerEnemigos extends JFrame {
 		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, Double.MIN_VALUE };
 		getContentPane().setLayout(gridBagLayout);
 		
+		//Texto zombies
 		JTextArea textoZombiesGifs = new JTextArea();
 		textoZombiesGifs.setBackground(Color.LIGHT_GRAY);
 		textoZombiesGifs.setEditable(false);
@@ -58,6 +66,7 @@ public class VerEnemigos extends JFrame {
 		gbc_textoZombiesGifs.gridy = 1;
 		getContentPane().add(textoZombiesGifs, gbc_textoZombiesGifs);
 		
+		//Gif zombies
 		JLabel gifZombieAleatorio = new JLabel("");
 		gifZombieAleatorio.setForeground(Color.LIGHT_GRAY);
 		gifZombieAleatorio.setIcon(new ImageIcon(VerEnemigos.class.getResource("/zombies/"+strZombies+".gif")));
@@ -67,6 +76,7 @@ public class VerEnemigos extends JFrame {
 		gbc_gifZombieAleatorio.gridy = 1;
 		getContentPane().add(gifZombieAleatorio, gbc_gifZombieAleatorio);
 		
+		//Texto goblins
 		JTextArea textoGoblinsGifs = new JTextArea();
 		textoGoblinsGifs.setBackground(Color.LIGHT_GRAY);
 		textoGoblinsGifs.setForeground(Color.BLACK);
@@ -80,6 +90,7 @@ public class VerEnemigos extends JFrame {
 		gbc_textoGoblinsGifs.gridy = 3;
 		getContentPane().add(textoGoblinsGifs, gbc_textoGoblinsGifs);
 		
+		//Gif goblins
 		JLabel gifGoblinAleatorio = new JLabel("");
 		gifGoblinAleatorio.setForeground(Color.LIGHT_GRAY);
 		gifGoblinAleatorio.setIcon(new ImageIcon(VerEnemigos.class.getResource("/goblins/"+strGoblins+".gif")));
@@ -89,6 +100,7 @@ public class VerEnemigos extends JFrame {
 		gbc_gifGoblinAleatorio.gridy = 3;
 		getContentPane().add(gifGoblinAleatorio, gbc_gifGoblinAleatorio);
 		
+		//Texto dragon
 		JTextArea textoDragonGifs = new JTextArea();
 		textoDragonGifs.setBackground(Color.LIGHT_GRAY);
 		textoDragonGifs.setForeground(Color.BLACK);
@@ -102,6 +114,7 @@ public class VerEnemigos extends JFrame {
 		gbc_textoDragonGifs.gridy = 5;
 		getContentPane().add(textoDragonGifs, gbc_textoDragonGifs);
 		
+		//Gif dragon
 		JLabel gifDragon = new JLabel("");
 		gifDragon.setForeground(Color.LIGHT_GRAY);
 		gifDragon.setIcon(new ImageIcon(VerEnemigos.class.getResource("/dragon/dragon.gif")));
@@ -110,7 +123,5 @@ public class VerEnemigos extends JFrame {
 		gbc_gifDragon.gridx = 2;
 		gbc_gifDragon.gridy = 5;
 		getContentPane().add(gifDragon, gbc_gifDragon);
-		
-		
 	}
 }

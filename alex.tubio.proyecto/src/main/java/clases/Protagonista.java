@@ -3,7 +3,11 @@ package clases;
 import java.util.ArrayList;
 
 import excepciones.NombreIncorrectoException;
-
+/**
+ * 
+ * @author alejandro
+ *
+ */
 public class Protagonista extends Personaje{
 	private ArrayList <ObjetoInventario> inventario;
 

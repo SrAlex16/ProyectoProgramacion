@@ -17,7 +17,11 @@ import excepciones.BaseDeDatosException;
 import excepciones.ImgException;
 import excepciones.NombreIncorrectoException;
 import excepciones.NumeroCasillaNoExisteException;
-
+/**
+ * 
+ * @author alejandro
+ *
+ */
 public class Casilla {
 	private ArrayList<Byte> destinosPosibles;
 	private byte numero;

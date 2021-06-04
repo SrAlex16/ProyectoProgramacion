@@ -1,7 +1,11 @@
 package clases;
 
 import excepciones.NombreIncorrectoException;
-
+/**
+ * 
+ * @author alejandro
+ *
+ */
 public class ObjetoInventario extends EntidadConNombre{
 	private boolean unSoloUso;
 	private byte vidaAportada;
