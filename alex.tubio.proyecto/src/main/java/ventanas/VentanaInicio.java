@@ -5,6 +5,8 @@ import javax.swing.JTextArea;
 
 import java.awt.BorderLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 
@@ -37,7 +39,7 @@ public class VentanaInicio extends JPanel{
 		setBackground(Color.LIGHT_GRAY);
 		setForeground(Color.BLACK);
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[]{0, 62, 429, 124, 0, 0};
+		gridBagLayout.columnWidths = new int[]{0, 62, 429, 15, 0, 0};
 		gridBagLayout.rowHeights = new int[]{0, 48, 64, 0, 0, 0};
 		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
@@ -55,14 +57,13 @@ public class VentanaInicio extends JPanel{
 		gbc_textoInicio.gridy = 2;
 		add(textoInicio, gbc_textoInicio);
 		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(VentanaInicio.class.getResource("/gifs/jugador.gif")));
-		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
-		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 0);
-		gbc_lblNewLabel.anchor = GridBagConstraints.NORTH;
-		gbc_lblNewLabel.gridx = 4;
-		gbc_lblNewLabel.gridy = 2;
-		add(lblNewLabel, gbc_lblNewLabel);
+		JLabel iconoJugador = new JLabel("");
+		iconoJugador.setIcon(new ImageIcon(VentanaInicio.class.getResource("/jugador/jugador.gif")));
+		GridBagConstraints gbc_iconoJugador = new GridBagConstraints();
+		gbc_iconoJugador.insets = new Insets(0, 0, 5, 0);
+		gbc_iconoJugador.gridx = 4;
+		gbc_iconoJugador.gridy = 2;
+		add(iconoJugador, gbc_iconoJugador);
 		
 		nombreJugador = new JTextField();
 		nombreJugador.setFont(new Font("Segoe Print", Font.PLAIN, 15));
@@ -91,6 +92,8 @@ public class VentanaInicio extends JPanel{
 						ventana.cargaPantallaMovimiento();
 					} catch (NombreIncorrectoException e1) {
 						System.out.println("el nombre no puede quedar en blanco (VentanaInicio)");
+						JOptionPane.showMessageDialog(ventana, "Escribe un nombre correcto",
+								"El nombre no puede quedar en blanco", JOptionPane.ERROR_MESSAGE);
 						e1.printStackTrace();
 					}
 				} catch (BaseDeDatosException e1) {

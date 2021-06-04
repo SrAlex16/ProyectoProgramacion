@@ -21,8 +21,8 @@ public class PantallaMovimiento extends JPanel {
 	private VentanaMapa mapa;
 	private boolean mapaActivo=false;
 	private Ventana ventana;
-	private VerEnemigos verEnemigos;
-	private boolean bestiarioActivo;
+	private VerEnemigos enemigos;
+	private boolean bestiarioActivo=false;
 	
 	public PantallaMovimiento(Casilla actual) {
 		setLayout(new BorderLayout(0, 0));
@@ -33,7 +33,8 @@ public class PantallaMovimiento extends JPanel {
 		// crear boton del mapa
 		final JButton verMapa = new JButton("Ver el mapa");
 		panel.add(verMapa);
-
+		verMapa.setFont(new Font("Ink Free", Font.BOLD, 20));
+		
 		// abrir y cerrar el mapa
 		verMapa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -55,35 +56,28 @@ public class PantallaMovimiento extends JPanel {
 			}
 		});
 		
-		//boton "bestiario"
-		verEnemigos= new VerEnemigos();
-		
+		//crear boton "bestiario"
 		final JButton bestiario = new JButton("Abrir Bestiario");
-		verEnemigos.setFont(new Font("Ink Free", Font.BOLD, 20));
 		panel.add(bestiario);
+		bestiario.setFont(new Font("Ink Free", Font.BOLD, 20));
 		
 		//abrir y cerrar el bestiario
-		verEnemigos.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
+		bestiario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 				if(!bestiarioActivo){
-					verEnemigos= new VerEnemigos();
+					enemigos= new VerEnemigos();
 					bestiario.setText("Cerrar Bestiario");
+					bestiarioActivo=true;
 				}else {
 					bestiario.setText("Abrir bestiario");
 					bestiarioActivo=false;
-					verEnemigos.setVisible(false);
-					verEnemigos.dispose();
-					verEnemigos=null;
+					enemigos.setVisible(false);
+					enemigos.dispose();
+					enemigos=null;
 				}
 				
 			}
 		});
-		
-		
-
-		// botón "Ver el mapa"
-		verMapa.setFont(new Font("Ink Free", Font.BOLD, 20));
 
 		// boton "Ir a la izquierda"
 		JButton irRecto = new JButton("Pasillo A");
