@@ -55,6 +55,16 @@ public class PantallaMovimiento extends JPanel {
 				}
 			}
 		});
+
+		// boton "Ir a la izquierda"
+		JButton irRecto = new JButton("Pasillo A");
+		panel.add(irRecto);
+		irRecto.setFont(new Font("Ink Free", Font.BOLD, 20));
+
+		// boton "Ir a la derecha"
+		JButton irDerecha = new JButton("Pasillo B");
+		panel.add(irDerecha);
+		irDerecha.setFont(new Font("Ink Free", Font.BOLD, 20));
 		
 		//crear boton "bestiario"
 		final JButton bestiario = new JButton("Abrir Bestiario");
@@ -78,21 +88,10 @@ public class PantallaMovimiento extends JPanel {
 				
 			}
 		});
-
-		// boton "Ir a la izquierda"
-		JButton irRecto = new JButton("Pasillo A");
-		panel.add(irRecto);
-		irRecto.setFont(new Font("Ink Free", Font.BOLD, 20));
-
-		// boton "Ir a la derecha"
-		JButton irDerecha = new JButton("Pasillo B");
-		panel.add(irDerecha);
-		irDerecha.setFont(new Font("Ink Free", Font.BOLD, 20));
 		
 		//Select * from casilla where numero=1
 		
-		
-		JLabel textoCasilla = new JLabel("poner texto");
+		JLabel textoCasilla = new JLabel(Casilla.getDescripcion());
 		add(textoCasilla, BorderLayout.CENTER);
 
 		this.setVisible(true);

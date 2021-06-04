@@ -21,12 +21,11 @@ import excepciones.NumeroCasillaNoExisteException;
 public class Casilla {
 	private ArrayList<Byte> destinosPosibles;
 	private byte numero;
-	private String descripcion;
+	private static String descripcion;
 	private BufferedImage imagen;
 	private Personaje enemigo;
 
-	public Casilla(byte numero)
-			 {
+	public Casilla(byte numero){
 		super();
 		destinosPosibles = new ArrayList<Byte>();
 		this.numero = numero;
@@ -184,13 +183,21 @@ public class Casilla {
 			e.printStackTrace();
 		}
 	}
-
+	
 	public ArrayList<Byte> getDestinosPosibles() {
 		return destinosPosibles;
 	}
 
 	public void setDestinosPosibles(ArrayList<Byte> destinosPosibles) {
 		this.destinosPosibles = destinosPosibles;
+	}
+	
+	public static String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
 
 	@Override
